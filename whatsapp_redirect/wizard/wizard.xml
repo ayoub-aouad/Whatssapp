@@ -21,5 +21,17 @@
                 </form>
             </field>
         </record>
+
+        <record id="whatssap_action" model="ir.actions.act_window">
+            <field name="name">Send Whatssap Message</field>
+            <field name="res_model">whatsapp.message.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="whatsapp_send_msg_wizard" />
+            <field name="target">new</field>
+        </record>
+        <menuitem id="whatssap_menu"
+            name="Send Whatssapp Messages"
+            action="whatssap_action"
+            sequence='15'/>
     </data>
 </odoo>
