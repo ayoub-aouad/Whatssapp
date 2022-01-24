@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sms_gateway_sender_wizard" model="ir.ui.view">
+       <field name="name">sms.gateway.api</field>
+       <field name="model">sms.gateway.api</field>
+       <field name="arch" type="xml">
+           <form string="SMS Sender">
+           <group>
+               <group>
+               <field name="token"/>
+                <field name="tel"/>
+                <field name="message"/>
+               </group>
+           </group>
+               <footer>
+                   <button
+                       name="send_sms"
+                       string="Send Sms"
+                       type="object"
+                       class="btn-primary"
+                   />
+               </footer>
+           </form>
+       </field>
+   </record>
+   <record id="sms_gateway_sender_action" model="ir.actions.act_window">
+       <field name="name">Sms Sender</field>
+       <field name="res_model">sms.gateway.api</field>
+       <field name="view_mode">form</field>
+       <field name="view_id" ref="sms_gateway_sender_wizard" />
+       <field name="target">new</field>
+   </record>
+   <menuitem id="sms_gateway_sender_menu"
+       name="Sms Sender"
+       action="sms_gateway_sender_action"
+       parent="contacts.menu_contacts"
+       sequence='15'/>
+</odoo>
